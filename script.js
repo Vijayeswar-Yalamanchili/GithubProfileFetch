@@ -15,7 +15,7 @@ submitBtn.addEventListener("click",async ()=>{
 //getting profile details using fetchapi grom github
 const getProfiledata = (data) =>{
     profileDatas.innerHTML = `
-    <div class = "card">
+    <div class = "card cardProfile">
         <div class = "card-img">
             <img src="${data.avatar_url}" alt="${data.name}">
         </div>
