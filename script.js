@@ -6,17 +6,14 @@ const repos = document.querySelector("#repos");
 //using async/await
 submitBtn.addEventListener("click",async ()=>{
     const userName = userData.value
-    // console.log(userName);
     const result = await fetch(`https://api.github.com/users/${userName}`)
     const data = await result.json();
-    // console.log(data); 
     getProfiledata(data)
     getRepo(userName)
 });
 
 //getting profile details using fetchapi grom github
 const getProfiledata = (data) =>{
-    // console.log("hi");
     profileDatas.innerHTML = `
     <div class = "card">
         <div class = "card-img">
@@ -40,16 +37,15 @@ const getProfiledata = (data) =>{
 }
 
 //getting repos of user using fetchapi grom github
-// const getRepo = async(userName) =>{
-async function getRepo(userName){
+const getRepo = async(userName) =>{
     const res = await fetch(`https://api.github.com/users/${userName}/repos`);
     const projects = await res.json();
     for (let i = 0; i < projects.length; i++) {
         repos.innerHTML += `
         <div class = "card">
             <div class = "card-body">
-                <div class = "card-title">${projects[i].name}</div>
-                <div class = "lang">${projects[i].language}</div>
+                <h6 class = "card-title">${projects[i].name}</h6>
+                <div class = "lang"><em>${projects[i].language}</em></div>
                 <div class="card-text">
                     <button class = "btn btn-primary pathbtn">
                         <a href="${projects[i].html_url}" target ="_blank" class="path">Open Repo</a>

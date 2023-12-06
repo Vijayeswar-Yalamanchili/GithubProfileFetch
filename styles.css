@@ -36,3 +36,14 @@
     color: white;
     text-decoration: none;
 }
+
+.repo{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.repo .card{
+    width: 400px;
+    background-color: rgb(255, 190, 220);
+}
